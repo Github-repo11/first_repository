@@ -1,0 +1,41 @@
+
+
+create table if not exists partitiondataset.par_table as select * from bigquery-public-data.chicago_crime.crime;
+
+
+CREATE TABLE
+partitiondataset.stack_data_parition
+(unique_key	INTEGER,					
+case_number	STRING,					
+date TIMESTAMP,				
+block STRING,				
+iucr STRING,					
+primary_type STRING,					
+description	STRING,					
+location_description STRING,
+arrest	BOOLEAN,				
+domestic BOOLEAN,					
+beat INTEGER,					
+district INTEGER,					
+ward INTEGER,					
+community_area INTEGER,					
+fbi_code STRING	,				
+x_coordinate FLOAT64,
+y_coordinate FLOAT64,
+year INTEGER,					
+updated_on TIMESTAMP,					
+latitude FLOAT64,					
+longitude FLOAT64,				
+location STRING)
+PARTITION BY
+  date_trunc(updated_on, month)
+  cluster by primary_type;	
+  
+  
+  insert into `partitiondataset.stack_data_parition`select * from partitiondataset.par_table;
+  
+  select * from  partitiondataset.stack_data_parition where year=2003
+  
+  select * from partitiondataset.par_table where year=2003
+  
+  
