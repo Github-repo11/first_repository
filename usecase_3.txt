@@ -1,0 +1,320 @@
+Welcome to the Google Cloud CLI! Run "gcloud -h" to get the list of available commands.
+---
+
+C:\Program Files (x86)\Google\Cloud SDK>gcloud init
+Welcome! This command will take you through the configuration of gcloud.
+
+Settings from your current configuration [default] are:
+accessibility:
+  screen_reader: 'False'
+compute:
+  region: us-central1
+  zone: us-central1-c
+core:
+  account: shilpaartist11@gmail.com
+  disable_usage_reporting: 'True'
+  project: gcpproject-11
+
+Pick configuration to use:
+ [1] Re-initialize this configuration [default] with new settings
+ [2] Create a new configuration
+Please enter your numeric choice:  1
+
+Your current configuration has been set to: [default]
+
+You can skip diagnostics next time by using the following flag:
+  gcloud init --skip-diagnostics
+
+Network diagnostic detects and fixes local network connection issues.
+Checking network connection...done.
+Reachability Check passed.
+Network diagnostic passed (1/1 checks passed).
+
+Choose the account you would like to use to perform operations for this configuration:
+ [1] shilpaartist11@gmail.com
+ [2] Log in with a new account
+Please enter your numeric choice:  1
+
+You are logged in as: [shilpaartist11@gmail.com].
+
+Pick cloud project to use:
+ [1] gcpproject-11
+ [2] static-dock-395409
+ [3] surya93
+ [4] Enter a project ID
+ [5] Create a new project
+Please enter numeric choice or text value (must exactly match list item):  1
+
+Your current project has been set to: [gcpproject-11].
+
+Do you want to configure a default Compute Region and Zone? (Y/n)?  y
+
+Which Google Compute Engine zone would you like to use as project default?
+If you do not specify a zone via a command line flag while working with Compute Engine resources, the default is assumed.
+ [1] us-east1-b
+ [2] us-east1-c
+ [3] us-east1-d
+ [4] us-east4-c
+ [5] us-east4-b
+ [6] us-east4-a
+ [7] us-central1-c
+ [8] us-central1-a
+ [9] us-central1-f
+ [10] us-central1-b
+ [11] us-west1-b
+ [12] us-west1-c
+ [13] us-west1-a
+ [14] europe-west4-a
+ [15] europe-west4-b
+ [16] europe-west4-c
+ [17] europe-west1-b
+ [18] europe-west1-d
+ [19] europe-west1-c
+ [20] europe-west3-c
+ [21] europe-west3-a
+ [22] europe-west3-b
+ [23] europe-west2-c
+ [24] europe-west2-b
+ [25] europe-west2-a
+ [26] asia-east1-b
+ [27] asia-east1-a
+ [28] asia-east1-c
+ [29] asia-southeast1-b
+ [30] asia-southeast1-a
+ [31] asia-southeast1-c
+ [32] asia-northeast1-b
+ [33] asia-northeast1-c
+ [34] asia-northeast1-a
+ [35] asia-south1-c
+ [36] asia-south1-b
+ [37] asia-south1-a
+ [38] australia-southeast1-b
+ [39] australia-southeast1-c
+ [40] australia-southeast1-a
+ [41] southamerica-east1-b
+ [42] southamerica-east1-c
+ [43] southamerica-east1-a
+ [44] asia-east2-a
+ [45] asia-east2-b
+ [46] asia-east2-c
+ [47] asia-northeast2-a
+ [48] asia-northeast2-b
+ [49] asia-northeast2-c
+ [50] asia-northeast3-a
+Did not print [66] options.
+Too many options [116]. Enter "list" at prompt to print choices fully.
+Please enter numeric choice or text value (must exactly match list item):  7
+
+Your project default Compute Engine zone has been set to [us-central1-c].
+You can change it by running [gcloud config set compute/zone NAME].
+
+Your project default Compute Engine region has been set to [us-central1].
+You can change it by running [gcloud config set compute/region NAME].
+
+Your Google Cloud SDK is configured and ready to use!
+
+* Commands that require authentication will use shilpaartist11@gmail.com by default
+* Commands will reference project `gcpproject-11` by default
+* Compute Engine commands will use region `us-central1` by default
+* Compute Engine commands will use zone `us-central1-c` by default
+
+Run `gcloud help config` to learn how to change individual settings
+
+This gcloud configuration is called [default]. You can create additional configurations if you work with multiple accounts and/or projects.
+Run `gcloud topic configurations` to learn more.
+
+Some things to try next:
+
+* Run `gcloud --help` to see the Cloud Platform services you can interact with. And run `gcloud help COMMAND` to get help on any gcloud command.
+* Run `gcloud topic --help` to learn about advanced features of the SDK like arg files and output formatting
+* Run `gcloud cheat-sheet` to see a roster of go-to `gcloud` commands.
+
+C:\Program Files (x86)\Google\Cloud SDK>gsutil ls
+gs://21stepsbucket/
+gs://bucket_usecase2/
+gs://gcs_bucket1129/
+gs://gcs_bucket7/
+gs://gcs_buckettt/
+
+C:\Program Files (x86)\Google\Cloud SDK>gsutil ls gs://21stepsbucket
+gs://21stepsbucket/btech_details.csv
+gs://21stepsbucket/dim_customer.csv
+
+C:\Program Files (x86)\Google\Cloud SDK>gsutil mb gs://buket_usecase3
+Creating gs://buket_usecase3/...
+
+C:\Program Files (x86)\Google\Cloud SDK>gsutil ls
+gs://21stepsbucket/
+gs://bucket_usecase2/
+gs://buket_usecase3/
+gs://gcs_bucket1129/
+gs://gcs_bucket7/
+gs://gcs_buckettt/
+
+C:\Program Files (x86)\Google\Cloud SDK>gsutil cp C:\Users\chetu\OneDrive\Desktop\gcp\cloud_BigQuery\empid_usecase3.csv gs://buket_usecase3/
+Copying file://C:\Users\chetu\OneDrive\Desktop\gcp\cloud_BigQuery\empid_usecase3.csv [Content-Type=application/vnd.ms-excel]...
+- [1 files][897.6 KiB/897.6 KiB]
+Operation completed over 1 objects/897.6 KiB.
+
+C:\Program Files (x86)\Google\Cloud SDK>gsutil ls gs://buket_usecase3
+gs://buket_usecase3/empid_usecase3.csv
+
+
+C:\Program Files (x86)\Google\Cloud SDK>bq mk -d u3_staging
+Dataset 'gcpproject-11:u3_staging' successfully created.
+
+
+C:\Program Files (x86)\Google\Cloud SDK>bq mk -t u3_staging.emp_u3 cust_id:string,first_name:string,last_name:string,gender:string,ip_address:string,mac_id:string,client_name:string,mail_id:string,url_:string,app_name:string,ph_number:string,credit_card_band:string,card_isu_date:string,cur_code:string,valid_card:string,card_type:string,currency_code:string,access_code:string,lst_trns_dt:string,guid:string,stock_sym:string,emp_role:string
+Table 'gcpproject-11:u3_staging.emp_u3' successfully created.
+
+
+
+C:\Program Files (x86)\Google\Cloud SDK>bq show u3_staging.emp_u3
+Table gcpproject-11:u3_staging.emp_u3
+
+   Last modified              Schema              Total Rows   Total Bytes   Expiration   Time Partitioning   Clustered Fields   Total Logical Bytes   Total Physical Bytes   Labels
+ ----------------- ----------------------------- ------------ ------------- ------------ ------------------- ------------------ --------------------- ---------------------- --------
+  07 Sep 16:13:51   |- cust_id: string            1000         938222                                                            938222                309695
+                    |- first_name: string
+
+                    |- last_name: string
+
+                    |- gender: string
+
+                    |- ip_address: string
+
+                    |- mac_id: string
+
+                    |- client_name: string
+
+                    |- mail_id: string
+
+                    |- url_: string
+
+                    |- app_name: string
+
+                    |- ph_number: string
+
+                    |- credit_card_band: string
+
+                    |- card_isu_date: string
+
+                    |- cur_code: string
+
+                    |- valid_card: string
+
+                    |- card_type: string
+
+                    |- currency_code: string
+
+                    |- access_code: string
+
+                    |- lst_trns_dt: string
+
+                    |- guid: string
+
+                    |- stock_sym: string
+
+                    |- emp_role: string
+
+
+C:\Program Files (x86)\Google\Cloud SDK>bq mk -d u3_history
+Dataset 'gcpproject-11:u3_history' successfully created.
+
+C:\Program Files (x86)\Google\Cloud SDK>bq mk -t u3_history.u3 cust_id:INTEGER,full_name:string,gender:string,ip_address:string,mac_id:STRING,client_name:string,mail_id:string,url_:string,app_name:string,ph_number:INT64,credit_card_band:string,card_isu_date:DATE,cur_code:string,valid_card:boolean,card_type:string,currency_code:string,access_code:string,lst_trns_dt:INT64,guid:string,stock_sym:string,emp_role:string,exp_date:TIMESTAMP
+
+C:\Program Files (x86)\Google\Cloud SDK>bq show u3_history.u3
+Table gcpproject-11:u3_history.u3
+
+   Last modified              Schema              Total Rows   Total Bytes   Expiration   Time Partitioning   Clustered Fields   Total Logical Bytes   Total Physical Bytes   Labels
+ ----------------- ----------------------------- ------------ ------------- ------------ ------------------- ------------------ --------------------- ---------------------- --------
+  07 Sep 22:13:33   |- cust_id: integer           1000         932033                                                            932033                306175
+                    |- full_name: string
+
+                    |- gender: string
+
+                    |- ip_address: string
+
+                    |- mac_id: string
+
+                    |- client_name: string
+
+                    |- mail_id: string
+
+                    |- url_: string
+
+                    |- app_name: string
+
+                    |- ph_number: integer
+
+                    |- credit_card_band: string
+
+                    |- card_isu_date: date
+
+                    |- cur_code: string
+
+                    |- valid_card: boolean
+
+                    |- card_type: string
+
+                    |- currency_code: string
+
+                    |- access_code: string
+
+                    |- lst_trns_dt: integer
+
+                    |- guid: string
+
+                    |- stock_sym: string
+
+                    |- emp_role: string
+
+                    |- exp_date: timestamp
+
+
+C:\Program Files (x86)\Google\Cloud SDK>bq query --use_legacy_sql=false insert into u3_history.u3 select safe_cast(cust_id as integer),CONCAT(first_name, ' ' ,last_name) as full_name,gender string,ip_address string,mac_id string,client_name string,mail_id string,url_ string,app_name string,safe_cast(ph_number as int64),credit_card_band string,CASE when card_isu_date LIKE '%/%' THEN parse_date('%m/%d/%Y',card_isu_date)WHEN card_isu_date LIKE '%-%' THEN PARSE_DATE('%m-%d-%Y',card_isu_date)END card_date,cur_code string,safe_cast(valid_card as boolean),card_type string,currency_code string,access_code string,safe_cast(lst_trns_dt as int64),guid string,stock_sym string,emp_role string,current_timestamp as exp_date from u3_staging.emp_u3
+
+C:\Program Files (x86)\Google\Cloud SDK>
+bq query --use_legacy_sql=false create view u3_history.use3_views as select * from u3_history.u3
+
+
+#####audit_Table##############
+
+
+
+create table audit_emp.stag(
+  u3_staging string,
+  emp_u3 string,
+  current_date date,
+  total_record_count int64,
+  audited_by string
+)
+
+create table audit_emp.history(
+  u3_history string,
+  u3 string,
+  current_date date,
+  total_record_count int64,
+  audited_by string
+)
+
+
+insert into `audit_emp.stag`
+select 'audit_emp' as dataset_name,
+'stag' as table_name,
+current_date() as date_audit,
+count(*) as total_record_count,
+"GcpProject-11" as audited_by
+from `dim_customer_stagingn.cust_staging`
+
+insert into `audit_emp.history`
+select 'audit_emp' as dataset_name,
+'history' as table_name,
+current_date() as date_audit,
+count(*) as total_record_count,
+"GcpProject-11" as audited_by
+from `u3_history.u3`
+
+
+
+
